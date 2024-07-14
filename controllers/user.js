@@ -89,7 +89,7 @@ async function handleVerifyUserByID(req, res) {
         const { id } = req.params;
         const { verified } = req.body;
 
-        await User.findByIdAndDelete(
+        await User.findByIdAndUpdate(
             { _id: id },
             { verified },
         );
