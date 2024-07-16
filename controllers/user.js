@@ -31,7 +31,7 @@ async function handleUserLogin(req, res){
         if(!user) return res.status(404).json({msg:"User not found."});
 
         const token = await User.matchPasswordAndGenerateToken(email, password);
-        //console.log(token)
+        
         if(token == undefined) return res.status(400).json({msg:"Incorrect Password."})
         
 
@@ -43,7 +43,7 @@ async function handleUserLogin(req, res){
 
         res.status(200).json({msg:"success"});
     }catch(error){
-        //console.log(error)
+        
         return res.status(500).json({msg:"User Login Error", error});
     }  
 }
