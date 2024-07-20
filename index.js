@@ -10,6 +10,7 @@ const cookieParser = require("cookie-parser");
 
 //Routes
 const userRoute = require("./routes/user");
+const propertyRoute = require("./routes/property");
 
 
 app.use(express.json());
@@ -26,6 +27,7 @@ app.get("/hello", (req, res)=>{
 })
 
 app.use("/api/user", userRoute)
+app.use("/api/property", propertyRoute)
 
 app.listen(PORT, ()=>{
     console.log(`Server start at PORT:${PORT}`)

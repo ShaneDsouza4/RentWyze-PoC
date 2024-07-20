@@ -19,7 +19,7 @@ const propertySchema = new Schema({
             type: String, 
             required: true 
         },
-        state: { 
+        province: { 
             type: String, 
             required: true 
         },
@@ -43,7 +43,7 @@ const propertySchema = new Schema({
         type: String
     }],
     landlord: { 
-        type: mongoose.Schema.Types.ObjectId, 
+        type: Schema.Types.ObjectId, 
         ref: 'user'
     }
 }, { timestamps: true });
