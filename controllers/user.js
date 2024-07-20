@@ -59,7 +59,7 @@ async function handlegetUserByID(req, res){
         if(!user){
             return res.status(404).json({msg:"No user found!"});
         }
-        return res.status(200).res.json({msg:"success", user});
+        return res.status(200).json({msg:"success", user});
     }catch(error){
         return res.status(500).json({msg:"error getting user", error});
     }
