@@ -68,11 +68,10 @@ async function handlegetUserByID(req, res){
 async function handleupdateUserByID(req, res) {
     try{
         const result = await User.findByIdAndUpdate(req.params.id, req.body);
-        return res.status(200).json({msg:"success"});
+        return res.status(200).json({msg:"success", result});
     }catch(error){
         return res.status(500).json({msg:"error updating user", error});
     }
-    
 }
 
 async function handleDeleteUserByID(req, res) {

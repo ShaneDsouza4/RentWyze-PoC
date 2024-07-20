@@ -46,8 +46,29 @@ async function handleGetPropertyReview(req, res){
     }
 }
 
+async function handleUpdateReviewByID(req, res){
+    try{
+        const { rating, review } = req.body;
+        const updatedReview = await Review.findByIdAndUpdate( req.params.id, {rating, review});
+        return res.status(200).json({msg:"success", updatedReview});
+    }catch(error){
+        res.status(500).json({ message: "Error Updating Reviews" });
+    }
+}
+
+async function handleDeleteReviewByID(req, res) {
+    try{
+        await Review.findByIdAndDelete(req.params.id);
+        return res.status(200).json({msg:"Reveiew deleted success!"});
+    }catch(error){
+        return res.status(500).json({msg:"Error Deleting Review", error});
+    }
+}
+
 
 module.exports = {
     handleAddReview,
-    handleGetPropertyReview
+    handleGetPropertyReview,
+    handleUpdateReviewByID,
+    handleDeleteReviewByID
 };
