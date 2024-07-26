@@ -62,7 +62,9 @@ const propertySchema = new Schema({
     agreementType:{
         type: String
     },
-
+    description:{
+        type: String
+    }
 }, { timestamps: true });
 
 propertySchema.pre('save', function(next) {
