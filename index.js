@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const { connectToMongoDB } = require("./connection");
 const { checkForAuthenticationCookie } = require("./middleware/authentication")
 
@@ -22,6 +23,16 @@ app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 
 connectToMongoDB("mongodb://127.0.0.1:27017/RentWyze")
 .then(()=>console.log("MongoDB connected."));
+
+const corsOpts = {
+  origin: "*",
+
+  methods: ["*"],
+
+  allowedHeaders: ["Content-Type"],
+};
+
+app.use(cors(corsOpts));
 
 //Routes
 app.get("/hello", (req, res)=>{
