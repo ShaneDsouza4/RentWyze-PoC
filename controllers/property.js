@@ -5,7 +5,10 @@ async function handleCreateProperty(req, res){
         //console.log(req.body)
         //console.log(req.files)
         const { name, propertyType, address, bedrooms, bathrooms, squareFeet, amenities, landlord } = req.body;
-        const imageURLs = req.files.map(x=> `/uploads/${x.filename}`);
+        let imageUrls = [];
+        if (req.files) {
+            imageUrls = req.files.map(file => `/uploads/${file.filename}`);
+        }
         const property = await Property.create({
             name, 
             propertyType, 
@@ -15,7 +18,7 @@ async function handleCreateProperty(req, res){
             squareFeet, 
             amenities, 
             landlord,
-            propertyImages: imageURLs
+            propertyImages: imageUrls
         })
 
         return res.status(201).json({msg:"Property created sucessfully", property});

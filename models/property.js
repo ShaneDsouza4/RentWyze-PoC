@@ -48,7 +48,21 @@ const propertySchema = new Schema({
     },
     propertyImages:[{
         type:String
-    }]
+    }],
+    price:{
+        type: Number,
+        required: false
+    },
+    downPayment:{
+        type:String,
+    },
+    keyDeposit:{
+        type:String,
+    },
+    agreementType:{
+        type: String
+    },
+
 }, { timestamps: true });
 
 propertySchema.pre('save', function(next) {
