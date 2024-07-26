@@ -50,7 +50,7 @@ const propertySchema = new Schema({
         type:String
     }],
     price:{
-        type: Number,
+        type: String,
         required: false
     },
     downPayment:{
