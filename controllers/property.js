@@ -4,7 +4,7 @@ async function handleCreateProperty(req, res){
     try{
         //console.log(req.body)
         //console.log(req.files)
-        const { name, propertyType, address, bedrooms, bathrooms, squareFeet, amenities, landlord } = req.body;
+        const { name, propertyType, address, bedrooms, bathrooms, squareFeet, amenities, landlord, description, price, downPayment, keyDeposit, agreementType } = req.body;
         let imageUrls = [];
         if (req.files) {
             imageUrls = req.files.map(file => `/uploads/${file.filename}`);
@@ -18,6 +18,11 @@ async function handleCreateProperty(req, res){
             squareFeet, 
             amenities, 
             landlord,
+            description, 
+            price, 
+            downPayment, 
+            keyDeposit, 
+            agreementType,
             propertyImages: imageUrls
         })
 
