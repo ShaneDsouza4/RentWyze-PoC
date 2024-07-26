@@ -35,7 +35,7 @@ async function handleAddReview(req, res){
 async function handleGetPropertyReview(req, res){
     try{
         console.log(req.params.id)
-        const reviews = await Review.find({ property_id: req.params.id }).populate('tenant_id', 'firstName lastName');
+        const reviews = await Review.find({ property_id: req.params.id }).populate('tenant_id', 'firstName lastName').sort({ created_at: -1 });                                                                                                     
         console.log(reviews);
         if (reviews.length === 0) {
             return res.status(404).json({ message: "No reviews found for this property" });

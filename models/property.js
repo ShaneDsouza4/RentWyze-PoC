@@ -3,38 +3,38 @@ const { Schema, model } = require("mongoose");
 const propertySchema = new Schema({
     name: { 
         type: String, 
-        required: true 
+        required: false
     },
     propertyType: {
         type: String,
         enum: ["House", "Apartment", "Basement"],
-        required: true
+        required: false
     },
     address: { 
         street:{
             type: String, 
-            required: true 
+            required: false
         },
         city: { 
             type: String, 
-            required: true 
+            required: false
         },
         province: { 
             type: String, 
-            required: true 
+            required: false
         },
         postalCode: { 
             type: String, 
-            required: true 
+            required: false
         }
     },
     bedrooms: {
         type: Number,
-        required: true
+        required: false
     },
     bathrooms: {
         type: Number,
-        required: true
+        required: false
     },
     squareFeet: {
         type: Number
@@ -45,7 +45,10 @@ const propertySchema = new Schema({
     landlord: { 
         type: Schema.Types.ObjectId, 
         ref: 'user'
-    }
+    },
+    propertyImages:[{
+        type:String
+    }]
 }, { timestamps: true });
 
 propertySchema.pre('save', function(next) {

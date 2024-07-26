@@ -2,8 +2,10 @@ const Property = require('../models/property');
 
 async function handleCreateProperty(req, res){
     try{
+        //console.log(req.body)
+        //console.log(req.files)
         const { name, propertyType, address, bedrooms, bathrooms, squareFeet, amenities, landlord } = req.body;
-
+        const imageURLs = req.files.map(x=> `/uploads/${x.filename}`);
         const property = await Property.create({
             name, 
             propertyType, 
@@ -12,11 +14,13 @@ async function handleCreateProperty(req, res){
             bathrooms, 
             squareFeet, 
             amenities, 
-            landlord
+            landlord,
+            propertyImages: imageURLs
         })
 
         return res.status(201).json({msg:"Property created sucessfully", property});
     }catch(error){
+        console.log("Create Property Error: ", error);
         return res.status(500).json({msg:"Error creating property", error});
     }  
 }

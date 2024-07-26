@@ -17,7 +17,8 @@ const reviewRoute = require("./routes/review");
 app.use(express.json());
 app.use(cookieParser());
 app.use(checkForAuthenticationCookie("token"))
-
+app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 
 connectToMongoDB("mongodb://127.0.0.1:27017/RentWyze")
 .then(()=>console.log("MongoDB connected."));
