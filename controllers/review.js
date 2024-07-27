@@ -24,7 +24,9 @@ async function handleAddReview(req, res){
             review
         })
 
-        return res.status(201).json({msg:"Review created sucessfully", newReview});
+        const userReview = await Review.findById(newReview._id).populate('tenant_id', 'firstName lastName');
+
+        return res.status(201).json({msg:"Review created sucessfully", userReview});
 
     } catch (error) {
         console.error(error);
