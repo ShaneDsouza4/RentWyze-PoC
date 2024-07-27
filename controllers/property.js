@@ -1,4 +1,5 @@
 const Property = require('../models/property');
+const Review = require("../models/reviews");
 
 async function handleCreateProperty(req, res){
     try{
@@ -49,7 +50,9 @@ async function handlegetPropertyByID(req, res){
         if(!property){
             return res.status(404).json({msg:"No property found."});
         }
-        return res.status(200).json({msg:"success", property});
+        
+        const reviews = await Review.find({ property_id: req.params.id }).populate('tenant_id', 'firstName lastName').sort({ created_at: -1 }); 
+        return res.status(200).json({msg:"success", property, reviews});
     }catch(error){
         return res.status(500).json({msg:"error getting property", error});
     }
