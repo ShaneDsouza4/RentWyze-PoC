@@ -37,7 +37,8 @@ async function handleCreateProperty(req, res){
 async function handleGetAllProperties(req, res) {
     try{
         const allDBProperties = await Property.find({});
-        return res.status(200).json(allDBProperties);
+        const propertyCount = allDBProperties.length;
+        return res.status(200).json({propertyCount, allDBProperties});
     }catch(error){
         return res.status(500).json({msg:"Error getting all properties", error});
     }
