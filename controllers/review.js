@@ -1,4 +1,3 @@
-const express = require('express');
 const Review = require('../models/reviews');
 const Property = require('../models/property');
 const User = require('../models/user');

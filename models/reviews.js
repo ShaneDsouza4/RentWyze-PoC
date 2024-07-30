@@ -22,11 +22,11 @@ const reviewSchema = new Schema({
         required: true
     }
 }, { timestamps: true });
-
 reviewSchema.pre('save', function(next) {
     this.updated_at = Date.now();
     next();
 });
+
 
 const Review = model('review', reviewSchema);
 
