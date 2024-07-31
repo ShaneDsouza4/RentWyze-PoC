@@ -19,11 +19,13 @@ const {
     handleGetAllProperties,
     handlegetPropertyByID,
     handleupdatePropertyByID,
-    handleDeletePropertyID
+    handleDeletePropertyID,
+    handleGetPropertyFilter
 } = require("../controllers/property");
 
 router.post("/createProperty", upload.array('propertyImages', 10), handleCreateProperty);
 router.get('/', handleGetAllProperties);
+router.get("/filterProperties", handleGetPropertyFilter);
 
 router.route("/:id")
     .get(handlegetPropertyByID)
