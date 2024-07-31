@@ -118,7 +118,7 @@ async function handleGetPropertyFilter(req, res){
     }catch(error){
         return res.status(500).json({msg:"error getting filtered property", error});
     }
-    }
+}
 
 module.exports = {
     handleCreateProperty,

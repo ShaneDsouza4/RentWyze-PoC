@@ -41,7 +41,7 @@ async function handleUserLogin(req, res){
             expires: new Date(Date.now() + oneDay)
         });
 
-        res.status(200).json({msg:"success", token: token});
+        res.status(200).json({msg:"success", token: token, user: user});
     }catch(error){
         
         return res.status(500).json({msg:"User Login Error", error});
