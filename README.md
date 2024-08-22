@@ -5,7 +5,7 @@ This repository contains the Proof of Concept (PoC) RESTful API for the RentWyze
 ## Features
 
 ### **User Management**
-   - **Registration and Login:** Secure user authentication and management system.
+   - **Registration and Login:** Secure user authentication and management system using **JWT (JSON Web Token)** for token-based authentication.
    - **User Roles:** Separate roles for tenants and landlords, with distinct functionalities.
 
 ### **Property Listings**
@@ -32,8 +32,24 @@ This repository contains the Proof of Concept (PoC) RESTful API for the RentWyze
 - **MongoDB** as the NoSQL database.
 - **Mongoose** for MongoDB object modeling.
 - **Multer** for handling file uploads.
+- **NEXT.js** for providing a seamless and dynamic user interface for interacting with the backend services.
 
 ## Frontend
 
 The frontend interface for this system is available at [here](https://github.com/fwaadahmad1/rentwyze-frontend).
+
+## Screenshots
+
+![Login](https://github.com/user-attachments/assets/ed115a97-41d0-4aa4-b25a-6efe5c25488f)
+
+![Signup](https://github.com/user-attachments/assets/36f6bf22-4ecf-434b-9ba8-dd53726e5ea2)
+
+![Home](https://github.com/user-attachments/assets/0ae4d8c1-4168-41e6-bcf4-4784b7e60bde)
+
+![Property Page](https://github.com/user-attachments/assets/f9bb9b03-d9e0-4ed0-8f83-6dede2faf915)
+
+![Add Property](https://github.com/user-attachments/assets/b7de975f-e457-496f-b57e-79cdf85059c9)
+
+
+
   
