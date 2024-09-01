@@ -1,4 +1,4 @@
-# RentWyze-PoC-REST
+# RentWyze-PoC
 
 This repository contains the Proof of Concept (PoC) RESTful API for the RentWyze property rental platform. RentWyze, a comprehensive rental property reviews application aimed at enhancing transparency and decision-making in the rental market. The platform enables users to review and rate rental properties, landlords, and property management companies, helping future tenants make well-informed decisions.
 
@@ -33,10 +33,15 @@ This repository contains the Proof of Concept (PoC) RESTful API for the RentWyze
 - **Mongoose** for MongoDB object modeling.
 - **Multer** for handling file uploads.
 - **NEXT.js** for providing a seamless and dynamic user interface for interacting with the backend services.
+- **AWS Elastic Beanstalk** for deploying and hosting the application.
 
 ## Frontend
 
 The frontend interface for this system is available at [here](https://github.com/fwaadahmad1/rentwyze-frontend).
+
+## Deployment
+
+The RESTful API service is deployed on **AWS Elastic Beanstalk**, ensuring scalability and reliability.
 
 ## Screenshots
 
